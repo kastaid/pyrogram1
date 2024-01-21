@@ -18,12 +18,12 @@
     </a>
 </p>
 
-## Pyrogram
+## PyrogramV1
 
 > Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots
 
 ``` python
-from pyrogram import Client, filters
+from pyrogramv1 import Client, filters
 
 app = Client("my_account")
 
@@ -61,7 +61,7 @@ If you'd like to support Pyrogram, you can consider:
 ### Installing
 
 ``` bash
-pip3 install pyrogram
+pip3 install pyrogramv1
 ```
 
 ### Resources

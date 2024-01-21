@@ -27,7 +27,7 @@ from typing import NamedTuple, List, Tuple
 # from black import format_str, FileMode
 
 HOME_PATH = Path("compiler/api")
-DESTINATION_PATH = Path("pyrogram/raw")
+DESTINATION_PATH = Path("pyrogramv1/raw")
 NOTICE_PATH = "NOTICE"
 
 SECTION_RE = re.compile(r"---(\w+)---")
@@ -149,7 +149,7 @@ def remove_whitespaces(source: str) -> str:
     return "\n".join(lines)
 
 
-def get_docstring_arg_type(t: str, is_list: bool = False, is_pyrogram_type: bool = False):
+def get_docstring_arg_type(t: str, is_list: bool = False, is_pyrogramv1_type: bool = False):
     if t in CORE_TYPES:
         if t == "long":
             return "``int`` ``64-bit``"
@@ -165,13 +165,13 @@ def get_docstring_arg_type(t: str, is_list: bool = False, is_pyrogram_type: bool
         else:
             return f"``{t.lower()}``"
     elif t == "TLObject" or t == "X":
-        return "Any object from :obj:`~pyrogram.raw.types`"
+        return "Any object from :obj:`~pyrogramv1.raw.types`"
     elif t == "!X":
-        return "Any method from :obj:`~pyrogram.raw.functions`"
+        return "Any method from :obj:`~pyrogramv1.raw.functions`"
     elif t.lower().startswith("vector"):
         return "List of " + get_docstring_arg_type(t.split("<", 1)[1][:-1], True)
     else:
-        return f":obj:`{t} <pyrogram.raw.base.{t}>`"
+        return f":obj:`{t} <pyrogramv1.raw.base.{t}>`"
 
 
 def get_references(t: str, kind: str):
@@ -184,7 +184,7 @@ def get_references(t: str, kind: str):
 
     if t:
         return "\n            ".join(
-            f"- :obj:`{i} <pyrogram.raw.functions.{i}>`"
+            f"- :obj:`{i} <pyrogramv1.raw.functions.{i}>`"
             for i in t
         ), len(t)
 
@@ -315,7 +315,7 @@ def start(format: bool = False):
 
         constructors = sorted(types_to_constructors[qualtype])
         constr_count = len(constructors)
-        items = "\n            ".join([f"- :obj:`{c} <pyrogram.raw.types.{c}>`" for c in constructors])
+        items = "\n            ".join([f"- :obj:`{c} <pyrogramv1.raw.types.{c}>`" for c in constructors])
 
         docstring = f"This base type has {constr_count} constructor{'s' if constr_count > 1 else ''} available.\n\n"
         docstring += f"    Constructors:\n        .. hlist::\n            :columns: 2\n\n            {items}"
@@ -369,12 +369,12 @@ def start(format: bool = False):
                 "{}{}: {}".format(
                     arg_name,
                     " (optional)".format(flag_number) if is_optional else "",
-                    get_docstring_arg_type(arg_type, is_pyrogram_type=c.namespace == "pyrogram")
+                    get_docstring_arg_type(arg_type, is_pyrogramv1_type=c.namespace == "pyrogramv1")
                 )
             )
 
         if c.section == "types":
-            docstring += f"This object is a constructor of the base type :obj:`~pyrogram.raw.base.{c.qualtype}`.\n\n"
+            docstring += f"This object is a constructor of the base type :obj:`~pyrogramv1.raw.base.{c.qualtype}`.\n\n"
         else:
             docstring += f"Telegram API method.\n\n"
 
@@ -580,23 +580,23 @@ def start(format: bool = False):
         f.write("objects = {")
 
         for c in combinators:
-            f.write(f'\n    {c.id}: "pyrogram.raw.{c.section}.{c.qualname}",')
+            f.write(f'\n    {c.id}: "pyrogramv1.raw.{c.section}.{c.qualname}",')
 
-        f.write('\n    0xbc799737: "pyrogram.raw.core.BoolFalse",')
-        f.write('\n    0x997275b5: "pyrogram.raw.core.BoolTrue",')
-        f.write('\n    0x1cb5c415: "pyrogram.raw.core.Vector",')
-        f.write('\n    0x73f1f8dc: "pyrogram.raw.core.MsgContainer",')
-        f.write('\n    0xae500895: "pyrogram.raw.core.FutureSalts",')
-        f.write('\n    0x0949d9dc: "pyrogram.raw.core.FutureSalt",')
-        f.write('\n    0x3072cfa1: "pyrogram.raw.core.GzipPacked",')
-        f.write('\n    0x5bb8e511: "pyrogram.raw.core.Message",')
+        f.write('\n    0xbc799737: "pyrogramv1.raw.core.BoolFalse",')
+        f.write('\n    0x997275b5: "pyrogramv1.raw.core.BoolTrue",')
+        f.write('\n    0x1cb5c415: "pyrogramv1.raw.core.Vector",')
+        f.write('\n    0x73f1f8dc: "pyrogramv1.raw.core.MsgContainer",')
+        f.write('\n    0xae500895: "pyrogramv1.raw.core.FutureSalts",')
+        f.write('\n    0x0949d9dc: "pyrogramv1.raw.core.FutureSalt",')
+        f.write('\n    0x3072cfa1: "pyrogramv1.raw.core.GzipPacked",')
+        f.write('\n    0x5bb8e511: "pyrogramv1.raw.core.Message",')
 
         f.write("\n}\n")
 
 
 if "__main__" == __name__:
     HOME_PATH = Path(".")
-    DESTINATION_PATH = Path("../../pyrogram/raw")
+    DESTINATION_PATH = Path("../../pyrogramv1/raw")
     NOTICE_PATH = Path("../../NOTICE")
 
     start(format=False)

@@ -7,7 +7,7 @@ some of the required arguments.
 
 .. code-block:: python
 
-    from pyrogram import Client
+    from pyrogramv1 import Client
 
     app = Client("my_account")
 
@@ -25,7 +25,7 @@ some of the required arguments.
 
 -----
 
-.. currentmodule:: pyrogram.types
+.. currentmodule:: pyrogramv1.types
 
 Message
 -------

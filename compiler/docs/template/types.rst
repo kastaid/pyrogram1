@@ -1,13 +1,13 @@
 Available Types
 ===============
 
-This page is about Pyrogram Types. All types listed here are available through the ``pyrogram.types`` package.
+This page is about Pyrogram Types. All types listed here are available through the ``pyrogramv1.types`` package.
 Unless required as argument to a client method, most of the types don't need to be manually instantiated because they
 are only returned by other methods. You also don't need to import them, unless you want to type-hint your variables.
 
 .. code-block:: python
 
-    from pyrogram.types import User, Message, ...
+    from pyrogramv1.types import User, Message, ...
 
 .. note::
 
@@ -23,7 +23,7 @@ are only returned by other methods. You also don't need to import them, unless y
 
 -----
 
-.. currentmodule:: pyrogram.types
+.. currentmodule:: pyrogramv1.types
 
 Users & Chats
 -------------

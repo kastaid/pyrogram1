@@ -1,12 +1,12 @@
 Available Methods
 =================
 
-This page is about Pyrogram methods. All the methods listed here are bound to a :class:`~pyrogram.Client` instance.
+This page is about Pyrogram methods. All the methods listed here are bound to a :class:`~pyrogramv1.Client` instance.
 Some other utility functions can instead be found in the main package directly.
 
 .. code-block:: python
 
-    from pyrogram import Client
+    from pyrogramv1 import Client
 
     app = Client("my_account")
 
@@ -19,7 +19,7 @@ Some other utility functions can instead be found in the main package directly.
 
 -----
 
-.. currentmodule:: pyrogram.Client
+.. currentmodule:: pyrogramv1.Client
 
 Utilities
 ---------
@@ -34,7 +34,7 @@ Utilities
 
     {utilities}
 
-.. currentmodule:: pyrogram
+.. currentmodule:: pyrogramv1
 
 .. autosummary::
     :nosignatures:
@@ -46,7 +46,7 @@ Utilities
 
     idle
 
-.. currentmodule:: pyrogram.Client
+.. currentmodule:: pyrogramv1.Client
 
 Messages
 --------
